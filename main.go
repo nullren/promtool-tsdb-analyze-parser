@@ -28,7 +28,7 @@ type Analysis struct {
 	Series                                          uint64
 	LabelNames                                      uint64
 	PostingsUnique                                  uint64
-	PostingsEntries                                 uint64
+	PostingsTotal                                   uint64
 	LabelPairsMostInvolvedInChurning                []NameCount
 	LabelNamesMostInvolvedInChurning                []NameCount
 	MostCommonLabelPairs                            []NameCount
@@ -113,7 +113,7 @@ func parse(input io.Reader) (analysis Analysis, err error) {
 			continue
 		}
 		if strings.HasPrefix(line, "Postings entries (total label pairs): ") {
-			analysis.PostingsEntries, err = strconv.ParseUint(strings.TrimPrefix(line, "Postings entries (total label pairs): "), 10, 64)
+			analysis.PostingsTotal, err = strconv.ParseUint(strings.TrimPrefix(line, "Postings entries (total label pairs): "), 10, 64)
 			if err != nil {
 				return analysis, err
 			}
