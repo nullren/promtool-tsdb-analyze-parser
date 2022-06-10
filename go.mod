@@ -1,4 +1,4 @@
-module promtool-tsdb-analyze-parser
+module github.com/nullren/promtool-tsdb-analyze-parser
 
 go 1.18
 
